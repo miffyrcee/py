@@ -9,17 +9,23 @@
 cipherShift
 """
 
+import getopt
+import sys
+
 
 def shiftLength(character, length):
-    if (ord(character) + length > 90):
-        return length - 26
+    if (ord(character) == 32):
+        return 11
     else:
-        return length
+        if (ord(character) + length > 90):
+            return length - 26
+        else:
+            return length
 
 
 def main():
-    sourceValue = 'GOAHEADANDCRACKIT'
-    for i in range(26):
+    sourceValue = 'OHJRPUNPZNYLHA'
+    for i in range(1, 26):
         unciperStoreMachine = ''
         for j in sourceValue:
             unciperStoreMachine += chr(ord(j) + shiftLength(j, i))
