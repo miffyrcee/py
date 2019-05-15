@@ -14,6 +14,8 @@
 #  print(i)
 #  print(ord('Z'))
 
+import numpy as np
+
 
 class test(object):
     @classmethod
@@ -25,6 +27,8 @@ class test(object):
 
 
 def main():
-    for i in 'asdfghjkl' [::2]:
-        print(i)
+    pass()
+
+
+
 main()

@@ -6,5 +6,6 @@ name = "pypi"
 [packages]
 numpy = "*"
 scipy = "*"
+pycipher = "*"
 
 [dev-packages]
