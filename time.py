@@ -6,14 +6,10 @@
 #
 # Distributed under terms of the MIT license.
 """
-
+time
 """
-import functools
-import itertools
-import re
-import string
+import time
 
-import numpy as np
-
-c = 'SDGSDGSDGHSHS'
-print(np.array(range(1, 3)) * np.array(range(1, 3)))
+print(time.localtime())
+print(time.time())
+print(time.time())

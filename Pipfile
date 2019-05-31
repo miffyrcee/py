@@ -7,5 +7,8 @@ name = "pypi"
 numpy = "*"
 scipy = "*"
 pycipher = "*"
+matplotlib = "*"
+pandas = "*"
+redis = "*"
 
 [dev-packages]
