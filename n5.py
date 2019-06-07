@@ -8,12 +8,4 @@
 """
 
 """
-import functools
-import itertools
-import re
-import string
-
-import numpy as np
-
-c = 'SDGSDGSDGHSHS'
-print(np.array(range(1, 3)) * np.array(range(1, 3)))
+print((5 + 1000) * 1000 / 5 / 2)
