@@ -12,12 +12,14 @@ import re
 import string
 import time
 
+
 import matplotlib.pyplot as plt
 import numpy as np
-import pycipher
 from pycipher import Vigenere
 
 
+
+import pycipher
 class vigenere(object):
     @property
     def vigenerearray(self):
@@ -87,7 +89,10 @@ def main():
     #  print(v.ic(strings))
     print(v.length('DLECYBRXNPKPYXVVOPXSDAICDAIC'))
     print(v.mic(strings))
+
+
     print(np.sum([i * i for i in v._POL()]))
+
 
 
 if __name__ == '__main__':

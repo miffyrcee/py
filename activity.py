@@ -12,10 +12,9 @@
 import numpy as np
 import numpy as np
 
+
 import itertools
 a = itertools.combinations(([2,3]+[3,6,7,7]),4)
 
-for i 
-    print()[2,3]+[3,6,7,7]
-print([2,3]+[3,6,7,7])
-
+for i in range(1,3):
+    print('s')
