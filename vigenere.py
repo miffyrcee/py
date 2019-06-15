@@ -12,14 +12,10 @@ import re
 import string
 import time
 
-
 import matplotlib.pyplot as plt
 import numpy as np
-from pycipher import Vigenere
-
-
-
 import pycipher
+from pycipher import Vigenere
 class vigenere(object):
     @property
     def vigenerearray(self):
@@ -76,6 +72,7 @@ class vigenere(object):
 
     def singleIc(self, cipheredText):
         _poss = 0
+
         for i in np.unique(list(cipheredText)):
             for j in np.where(np.array(list(cipheredText)) == i):
                 _poss += pow(len(j) / len(cipheredText), 2)
@@ -90,9 +87,7 @@ def main():
     print(v.length('DLECYBRXNPKPYXVVOPXSDAICDAIC'))
     print(v.mic(strings))
 
-
     print(np.sum([i * i for i in v._POL()]))
-
 
 
 if __name__ == '__main__':

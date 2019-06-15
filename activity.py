@@ -5,16 +5,36 @@
 # Copyright © 2019 miffyrcee <miffyrcee@localhost.localdomain>
 #
 # Distributed under terms of the MIT license.
-
 """
 
 """
-import numpy as np
-import numpy as np
-
-
+import functools
 import itertools
-a = itertools.combinations(([2,3]+[3,6,7,7]),4)
+import string
 
-for i in range(1,3):
-    print('s')
+import numpy as np
+
+p = [100, 60, 120]
+w = [20, 10, 30]
+
+
+def add(x):
+    return 2 * x
+
+
+def mul(x):
+    return x * x
+
+
+def selector(W, n):
+    result = []
+    for i in range(3):
+        W = W - w[i]
+        if W > 0:
+            result.append(w[i])
+        else:
+            result.append(w[i] + W)
+    print(result)
+
+
+selector(50, 3)
