@@ -1,0 +1,29 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "e7c60895ace31ca8c30b4fbd3c53d62f8b975e47e85f3a5fdbd1da899fdaf91d"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.7"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.tuna.tsinghua.edu.cn/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "pycipher": {
+            "hashes": [
+                "sha256:b5632d121e7992d3e84cd45ae279d220c10aaabfd4a1e58321de1a4eca7c86f3",
+                "sha256:e5b3b3ef734604da09e1642f9c496a75df850668aee5b18818a3988eec4cd71b"
+            ],
+            "index": "pypi",
+            "version": "==0.5.2"
+        }
+    },
+    "develop": {}
+}
