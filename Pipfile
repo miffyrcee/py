@@ -4,10 +4,12 @@ url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 verify_ssl = true
 
 [dev-packages]
+flake8 = "*"
 
 [packages]
 pycipher = "*"
 numpy = "*"
+jedi = "*"
 
 [requires]
 python_version = "3.7"

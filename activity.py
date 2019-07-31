@@ -35,6 +35,4 @@ def selector(W, n):
         else:
             result.append(w[i] + W)
     print(result)
-
-
 selector(50, 3)
