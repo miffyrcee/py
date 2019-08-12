@@ -7,11 +7,9 @@ verify_ssl = true
 flake8 = "*"
 
 [packages]
-pycipher = "*"
+networkx = "*"
 numpy = "*"
-jedi = "*"
-pandas = "*"
-openssl = "*"
+matplotlib = "*"
 
 [requires]
 python_version = "3.7"

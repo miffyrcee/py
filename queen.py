@@ -22,5 +22,4 @@ def queen(A, cur=0):
                 break
         if flag:
             queen(A, cur + 1)
-
 queen([None] * 8)
