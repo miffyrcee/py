@@ -12,17 +12,20 @@ w = np.array((
     [np.inf, np.inf, np.inf, 6, 0],
 ))
 
+stack = [0] * 5
 
-def exist_p(u, v, stack=list()):
+
+def exist_p(u, v, curl):
     if w[u][v] and w[u][v] < MAXLENGTH:
-        print(stack)
-        return True
+        return stack
     else:
         for i in range(5):
             if w[u][i] and w[u][i] < MAXLENGTH:
-                stack.append(i)
-                exist_p(i, v, stack)
+                stack[curl] = i
+                exist_p(i, v, curl + 1)
         return False
 
 
-print(exist_p(0, 1))
+for i in range(5):
+    for j in range(5):
+        print(exist_p(i, j, 1))

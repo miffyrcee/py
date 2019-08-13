@@ -1,119 +1,57 @@
-"""
-These are classes to represent a Graph and its elements.
-It can be shared across graph algorithms.
-"""
+import copy
+from collections import defaultdict
+from random import choices
+from string import *
+
+import numpy as np
+
+n = 6
+c = np.array(choices(digits, k=n * n)).astype(int).reshape((n, n))
+for i in range(n):
+    for j in range(n):
+        if i >= j:
+            c[i][j] = c[j][i]
+
+f = np.zeros((n, n))
+h = [0] * n
+h[0] = n
+
+e = [0] * n
+
+N = defaultdict(list)
+for i in range(n):
+    for j in range(n):
+        if c[i][j]:
+            N[i].append(j)
 
 
-class Node(object):
-    def __init__(self, name):
-        self.name = name
-
-    @staticmethod
-    def get_name(obj):
-        if isinstance(obj, Node):
-            return obj.name
-        elif isinstance(obj, str):
-            return obj
-        return ''
-
-    def __eq__(self, obj):
-        return self.name == self.get_name(obj)
-
-    def __repr__(self):
-        return self.name
-
-    def __hash__(self):
-        return hash(self.name)
-
-    def __ne__(self, obj):
-        return self.name != self.get_name(obj)
-
-    def __lt__(self, obj):
-        return self.name < self.get_name(obj)
-
-    def __le__(self, obj):
-        return self.name <= self.get_name(obj)
-
-    def __gt__(self, obj):
-        return self.name > self.get_name(obj)
-
-    def __ge__(self, obj):
-        return self.name >= self.get_name(obj)
-
-    def __bool__(self):
-        return self.name
+def init_pre_flow():
+    e[0] = e[0] - sum(c[0])
+    for i in range(1, n):
+        f[0][i] = c[0][i]
+        f[i][0] = 0
+        e[i] = f[0][i]
 
 
-class DirectedEdge(object):
-    def __init__(self, node_from, node_to):
-        self.nf = node_from
-        self.nt = node_to
-
-    def __eq__(self, obj):
-        if isinstance(obj, DirectedEdge):
-            return obj.nf == self.nf and obj.nt == self.nt
-        return False
-
-    def __repr__(self):
-        return '({0} -> {1})'.format(self.nf, self.nt)
+def push(u, v):
+    # flow from u to v
+    # e[u] exceed
+    delta = min(f[v][u], e[u])
+    f[u][v] += delta
+    f[v][u] -= delta
+    e[u] -= delta
+    e[v] += delta
 
 
-class DirectedGraph(object):
-    def __init__(self, load_dict={}):
-        self.nodes = []
-        self.edges = []
-        self.adjmt = {}
-
-        if load_dict and type(load_dict) == dict:
-            for v in load_dict:
-                node_from = self.add_node(v)
-                self.adjmt[node_from] = []
-                for w in load_dict[v]:
-                    node_to = self.add_node(w)
-                    self.adjmt[node_from].append(node_to)
-                    self.add_edge(v, w)
-
-    def add_node(self, node_name):
-        try:
-            return self.nodes[self.nodes.index(node_name)]
-        except ValueError:
-            node = Node(node_name)
-            self.nodes.append(node)
-            return node
-
-    def add_edge(self, node_name_from, node_name_to):
-        try:
-            node_from = self.nodes[self.nodes.index(node_name_from)]
-            node_to = self.nodes[self.nodes.index(node_name_to)]
-            self.edges.append(DirectedEdge(node_from, node_to))
-        except ValueError:
+def discharge(u):
+    while e[u]:
+        sum_to = sum(map(lambda x: f[x][u], N[u]))
+        if sum_to > e[u]:
+            pass
+        else:
             pass
 
 
-class Graph:
-    def __init__(self, vertices):
-        # No. of vertices
-        self.V = vertices
-
-        # default dictionary to store graph
-        self.graph = {}
-
-        # To store transitive closure
-        self.tc = [[0 for j in range(self.V)] for i in range(self.V)]
-
-    # function to add an edge to graph
-    def add_edge(self, u, v):
-        if u in self.graph:
-            self.graph[u].append(v)
-        else:
-            self.graph[u] = [v]
-
-
-g = Graph(4)
-g.add_edge(0, 1)
-g.add_edge(0, 2)
-g.add_edge(1, 2)
-g.add_edge(2, 0)
-g.add_edge(2, 3)
-g.add_edge(3, 3)
-print(g)
+init_pre_flow()
+print(e)
+print(f)
