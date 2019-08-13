@@ -36,7 +36,7 @@ def init_pre_flow():
 def push(u, v):
     # flow from u to v
     # e[u] exceed
-    delta = min(f[v][u], e[u])
+    delta = min(c[u][v] - f[u][v], e[u])
     f[u][v] += delta
     f[v][u] -= delta
     e[u] -= delta
