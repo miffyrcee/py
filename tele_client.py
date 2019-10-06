@@ -14,6 +14,7 @@ client = TelegramClient(sess_path, api_id, api_hash)
 
 async def check():
     await client.send_message('@TouhouNetworkBot', '/checkin')
+    await client.send_message('@MengdiBot', '/checkin')
     await asyncio.sleep(random.randint(43200, 86400))
     await check()
 

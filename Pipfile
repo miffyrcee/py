@@ -19,6 +19,10 @@ jieba = "*"
 telethon = "*"
 apscheduler = "*"
 datetime = "*"
+bs4 = "*"
+tensorflow = "==2.0.0"
+doc2dash = "*"
+sphinx-rtd-theme = "*"
 
 [requires]
 python_version = "3.7"
