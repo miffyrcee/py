@@ -7,22 +7,8 @@ verify_ssl = true
 flake8 = "*"
 
 [packages]
-matplotlib = "*"
 numpy = "*"
-networkx = "*"
-pathlib2 = "*"
-pillow = "*"
-pygame = "*"
-pandas = "*"
-xlrd = "*"
-jieba = "*"
-telethon = "*"
-apscheduler = "*"
-datetime = "*"
-bs4 = "*"
-tensorflow = "==2.0.0"
-doc2dash = "*"
-sphinx-rtd-theme = "*"
+pyyaml = "*"
 
 [requires]
 python_version = "3.7"
